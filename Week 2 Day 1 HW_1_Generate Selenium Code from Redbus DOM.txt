@@ -1,0 +1,146 @@
+Goal : To generate a Selenium Java code by passing DOM
+
+Instruction:
+Generate only a Selenium Java code
+Use TestNG for Test Runner
+Add Java Doc for methods and class
+Use Selenium 2.30+ compatible imports
+Use meaningful method name
+Do not include explanations or test code
+Follow Locator strategies
+	- USe ID only when it is unique and not numbers
+	- Use Name only when Id is not present and unique
+	- Use xpath (preferrably attribute based or text based)
+	- Never use CSS
+Use Explicit wait only no Thread.sleep
+
+Context:
+You are an AI Assitant to convert html DOM to Selenium code
+You are expert in booking a ticket in Selenium Java
+The project is ticket booking application
+
+Examples:
+<div class="searchWidget___ff2e95 undefined" data-autoid="searchWidget"><div class="mainContent___56d604"><div class="inputsWrapper___8e443d"><div class="inputAndSwapWrapper___1c45b5"><div class="srcDestWrapper___11b20c" tabindex="0" role="button"><div class="placeHolderContainer___e0848c"><i class="icon___3f9515 icon icon-boarding_point"></i><div class="labelCityWrapper___dd1d0e"><div class="label___9f9f41 ">From</div><div class="srcDest___3c0d7e"></div></div></div></div></div><div class="srcDestWrapper___11b20c" tabindex="0" role="button"><div class="placeHolderContainer___e0848c"><i class="icon___3f9515 icon icon-dropping_point"></i><div class="labelCityWrapper___dd1d0e"><div class="label___9f9f41 ">To</div><div class="srcDest___3c0d7e"></div></div></div></div><div class="dateWrapper___5e7fce"><div class="dateInputWrapper___50eff3" tabindex="0" role="button" aria-label="Select Date of Journey. Current date: 23 Oct, 2025" aria-expanded="false" aria-haspopup="dialog"><i class="icon___22c3b8 icon icon-date_range"></i><div class="dojWrapper___9b2a92"><span class="dateLabel___ec3462 selected___2f6dd5">Date of Journey</span><span class="doj___9f3738">23 Oct, 2025</span></div></div><div class="buttonsWrapper___901264"><div class="tonalWrap___f5ad04 " style="--button-width: auto;"><button class="tonalButton___0e681a " role="button" aria-label="Search for Today">Today</button></div><div class="tonalWrap___f5ad04 " style="--button-width: auto;"><button class="tonalButton___0e681a " role="button" aria-label="Search for Tomorrow">Tomorrow</button></div></div></div></div><div class="womenFunnelWrapper___75b709"><div class="womenFunnelToggleContainer___ed7572"><div class="imageTextWrapper___a2636a" role="button" tabindex="0" aria-label="Booking for women, Know more"><img src="/rpwassets/public/images/female.svg" alt="" class="imageWrapper___74840c" width="32" height="32"><div class="textWrapper___90915c"><div class="text___d76473">Booking for women</div><div class="linkText___c6c0a2">Know more</div></div></div><div role="switch" aria-checked="false" aria-label="Booking for Women" tabindex="0"><label for="switch" class="switchLabel___018592 unChecked___99a7e5 enabled___05ad3a "><input id="switch" type="checkbox" class="switchInput___5498d5" aria-label="" tabindex="-1"></label></div></div></div></div><button class="primaryButton___93b44e searchButtonWrapper___1e2c20 " style="--button-width: 100%;"><i class="icon___089723 icon icon-search"></i>Search buses</button></div>
+
+
+
+Response:
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import java.time.Duration;
+
+/**
+ * Test class for ticket booking application search functionality.
+ */
+public class TicketBookingSearchTest {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+
+    /**
+     * Sets up the WebDriver and WebDriverWait before tests.
+     */
+    @BeforeClass
+    public void setUp() {
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+    }
+
+    /**
+     * Performs bus search for ticket booking.
+     */
+    @Test
+    public void performBusSearch() {
+        navigateToSearchPage();
+        enterSourceCity("New York");
+        enterDestinationCity("Boston");
+        selectJourneyDate();
+        toggleWomenBooking();
+        clickSearchBusesButton();
+    }
+
+    /**
+     * Navigates to the search page of the application.
+     */
+    private void navigateToSearchPage() {
+        driver.get("https://www.ticketbooking.com"); // Replace with actual URL
+    }
+
+    /**
+     * Enters the source city in the search form.
+     *
+     * @param sourceCity The source city to enter.
+     */
+    private void enterSourceCity(String sourceCity) {
+        WebElement sourceField = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//div[@class='srcDestWrapper___11b20c' and .//div[text()='From']]")));
+        sourceField.click();
+        WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='srcDestWrapper___11b20c' and .//div[text()='From']]//input")));
+        inputField.sendKeys(sourceCity);
+    }
+
+    /**
+     * Enters the destination city in the search form.
+     *
+     * @param destinationCity The destination city to enter.
+     */
+    private void enterDestinationCity(String destinationCity) {
+        WebElement destinationField = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//div[@class='srcDestWrapper___11b20c' and .//div[text()='To']]")));
+        destinationField.click();
+        WebElement inputField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//div[@class='srcDestWrapper___11b20c' and .//div[text()='To']]//input")));
+        inputField.sendKeys(destinationCity);
+    }
+
+    /**
+     * Selects the journey date from the date picker.
+     */
+    private void selectJourneyDate() {
+        WebElement dateField = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//div[@class='dateInputWrapper___50eff3' and @aria-label='Select Date of Journey. Current date: 23 Oct, 2025']")));
+        dateField.click();
+        WebElement todayButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[@aria-label='Search for Today' and text()='Today']")));
+        todayButton.click();
+    }
+
+    /**
+     * Toggles the women booking option.
+     */
+    private void toggleWomenBooking() {
+        WebElement womenBookingSwitch = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//input[@id='switch' and @type='checkbox']")));
+        womenBookingSwitch.click();
+    }
+
+    /**
+     * Clicks the search buses button to initiate the search.
+     */
+    private void clickSearchBusesButton() {
+        WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//button[@class='primaryButton___93b44e searchButton___1e2c20' and .//i[contains(@class, 'icon-search')]]")));
+        searchButton.click();
+    }
+
+    /**
+     * Cleans up resources after tests.
+     */
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}
