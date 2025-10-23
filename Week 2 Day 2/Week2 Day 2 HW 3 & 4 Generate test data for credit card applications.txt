@@ -1,0 +1,254 @@
+Goal:
+To Generate test data for Credit card applications
+
+Instructions :
+Generate different types of test data for credit card application 
+Generate different credit card types
+Generate with different conditions for each credit card types
+
+Context:
+You are an AI assistant to generate test data
+You are expert in test data generation for credit cards
+This is a banking application
+
+Examples:
+Use IDSC First Bank as the reference institution. Include card types such as:
+- Platinum
+- Gold
+- Silver
+- Student
+- Business
+Simulate conditions like:
+- Age eligibility
+- Employment status
+- Income brackets
+- Credit score ranges
+- Existing customer flag
+
+
+
+Persona
+
+- Act as Senior test case developer
+
+Output Format
+
+ - Use JSON for raw test data
+
+Tone:
+
+use polite tone for test case creation
+Ensure clarity and readability for cross-functional teams (QA, Dev, BA)
+
+
+
+AI answer:
+
+{
+"bank": "IDSC First Bank",
+"generated_by": "Senior Test Case Developer",
+"purpose": "This JSON provides raw test data for credit card applications, simulating various conditions across different card types. Each entry represents a sample applicant profile to support testing scenarios for eligibility, processing, and edge cases. Designed for clarity and use by QA, Dev, and BA teams.",
+"test_data": [
+{
+"test_id": "PLAT-001",
+"card_type": "Platinum",
+"applicant": {
+"age": 35,
+"employment_status": "Employed",
+"annual_income": 150000,
+"credit_score": 780,
+"existing_customer": true
+},
+"condition_description": "High income, excellent credit, adult employed applicant, existing customer - ideal for approval testing."
+},
+{
+"test_id": "PLAT-002",
+"card_type": "Platinum",
+"applicant": {
+"age": 28,
+"employment_status": "Self-Employed",
+"annual_income": 80000,
+"credit_score": 650,
+"existing_customer": false
+},
+"condition_description": "Moderate income, fair credit, young self-employed applicant, new customer - for boundary condition testing."
+},
+{
+"test_id": "PLAT-003",
+"card_type": "Platinum",
+"applicant": {
+"age": 45,
+"employment_status": "Unemployed",
+"annual_income": 0,
+"credit_score": 550,
+"existing_customer": true
+},
+"condition_description": "No income, poor credit, middle-aged unemployed applicant, existing customer - for rejection scenario testing."
+},
+{
+"test_id": "PLAT-004",
+"card_type": "Platinum",
+"applicant": {
+"age": 60,
+"employment_status": "Retired",
+"annual_income": 120000,
+"credit_score": 820,
+"existing_customer": true
+},
+"condition_description": "High pension income, excellent credit, senior retired applicant, existing customer - for age eligibility edge case."
+},
+{
+"test_id": "GOLD-001",
+"card_type": "Gold",
+"applicant": {
+"age": 30,
+"employment_status": "Employed",
+"annual_income": 80000,
+"credit_score": 700,
+"existing_customer": true
+},
+"condition_description": "Moderate income, good credit, adult employed applicant, existing customer - standard approval case."
+},
+{
+"test_id": "GOLD-002",
+"card_type": "Gold",
+"applicant": {
+"age": 22,
+"employment_status": "Part-Time",
+"annual_income": 30000,
+"credit_score": 620,
+"existing_customer": false
+},
+"condition_description": "Low income, fair credit, young part-time applicant, new customer - for minimum eligibility testing."
+},
+{
+"test_id": "GOLD-003",
+"card_type": "Gold",
+"applicant": {
+"age": 40,
+"employment_status": "Self-Employed",
+"annual_income": 60000,
+"credit_score": 680,
+"existing_customer": true
+},
+"condition_description": "Medium income, good credit, self-employed applicant, existing customer - for variable income validation."
+},
+{
+"test_id": "GOLD-004",
+"card_type": "Gold",
+"applicant": {
+"age": 19,
+"employment_status": "Unemployed",
+"annual_income": 0,
+"credit_score": 500,
+"existing_customer": false
+},
+"condition_description": "No income, poor credit, underage unemployed applicant, new customer - for age and income rejection testing."
+},
+{
+"test_id": "SILV-001",
+"card_type": "Silver",
+"applicant": {
+"age": 25,
+"employment_status": "Employed",
+"annual_income": 40000,
+"credit_score": 650,
+"existing_customer": true
+},
+"condition_description": "Low-medium income, fair credit, young employed applicant, existing customer - basic approval scenario."
+},
+{
+"test_id": "SILV-002",
+"card_type": "Silver",
+"applicant": {
+"age": 50,
+"employment_status": "Employed",
+"annual_income": 50000,
+"credit_score": 600,
+"existing_customer": false
+},
+"condition_description": "Medium income, fair credit, middle-aged employed applicant, new customer - for credit threshold testing."
+},
+{
+"test_id": "SILV-003",
+"card_type": "Silver",
+"applicant": {
+"age": 18,
+"employment_status": "Part-Time",
+"annual_income": 20000,
+"credit_score": 580,
+"existing_customer": true
+},
+"condition_description": "Low income, poor-fair credit, minimum age part-time applicant, existing customer - entry-level eligibility."
+},
+{
+"test_id": "SILV-004",
+"card_type": "Silver",
+"applicant": {
+"age": 65,
+"employment_status": "Retired",
+"annual_income": 30000,
+"credit_score": 720,
+"existing_customer": true
+},
+"condition_description": "Pension income, good credit, senior retired applicant, existing customer - for upper age bracket testing."
+},
+{
+"test_id": "STUD-001",
+"card_type": "Student",
+"applicant": {
+"age": 20,
+"employment_status": "Student",
+"annual_income": 10000,
+"credit_score": 600,
+"existing_customer": false
+}
+
+
+
+API request:
+{
+"model": "openai/gpt-oss-20b",
+"messages": [{
+    "role": "user",
+    "content": "Generate test data for credit card applications for IDSC First Bank, including different credit card types (Platinum, Gold, Silver, Student, Business) with various conditions such as age eligibility, employment status, income brackets, credit score ranges, and existing customer flag. Act as a Senior Test Case Developer, providing the output in JSON format for raw test data with a polite tone, ensuring clarity and readability for cross-functional teams (QA, Dev, BA). The context is a banking application, and the AI is an expert in test data generation for credit cards."
+    
+
+}]
+}
+
+API Response:
+
+{
+    "id": "chatcmpl-0544e6fe-1cb8-4faf-a35b-7bd3657e0aeb",
+    "object": "chat.completion",
+    "created": 1761245919,
+    "model": "openai/gpt-oss-20b",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "```json\n{\n  \"testCases\": [\n    {\n      \"testCaseId\": \"TC-001\",\n      \"applicantId\": \"APP-1001\",\n      \"name\": \"Alice Johnson\",\n      \"age\": 28,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 95000,\n      \"creditScore\": 815,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Platinum\",\n      \"description\": \"Eligible for Platinum: age >= 21, employed, high income, excellent credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-002\",\n      \"applicantId\": \"APP-1002\",\n      \"name\": \"Bob Smith\",\n      \"age\": 19,\n      \"employmentStatus\": \"Student\",\n      \"annualIncome\": 12000,\n      \"creditScore\": 640,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Platinum\",\n      \"description\": \"Ineligible for Platinum due to age < 21.\"\n    },\n    {\n      \"testCaseId\": \"TC-003\",\n      \"applicantId\": \"APP-1003\",\n      \"name\": \"Carol Martinez\",\n      \"age\": 35,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 120000,\n      \"creditScore\": 740,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Platinum\",\n      \"description\": \"Existing customer with good credit score and high income.\"\n    },\n    {\n      \"testCaseId\": \"TC-004\",\n      \"applicantId\": \"APP-1004\",\n      \"name\": \"David Lee\",\n      \"age\": 22,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 40000,\n      \"creditScore\": 690,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Gold\",\n      \"description\": \"Eligible for Gold: age >= 18, moderate income, good credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-005\",\n      \"applicantId\": \"APP-1005\",\n      \"name\": \"Eva Kim\",\n      \"age\": 31,\n      \"employmentStatus\": \"Unemployed\",\n      \"annualIncome\": 0,\n      \"creditScore\": 720,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Gold\",\n      \"description\": \"Ineligible for Gold due to no income.\"\n    },\n    {\n      \"testCaseId\": \"TC-006\",\n      \"applicantId\": \"APP-1006\",\n      \"name\": \"Frank Wright\",\n      \"age\": 45,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 65000,\n      \"creditScore\": 680,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Gold\",\n      \"description\": \"Existing customer with moderate income and good credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-007\",\n      \"applicantId\": \"APP-1007\",\n      \"name\": \"Grace Park\",\n      \"age\": 27,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 35000,\n      \"creditScore\": 630,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Eligible for Silver: age >= 18, moderate income, fair credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-008\",\n      \"applicantId\": \"APP-1008\",\n      \"name\": \"Hank Thompson\",\n      \"age\": 19,\n      \"employmentStatus\": \"Student\",\n      \"annualIncome\": 8000,\n      \"creditScore\": 580,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Eligible for Silver: student, low income, borderline credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-009\",\n      \"applicantId\": \"APP-1009\",\n      \"name\": \"Irene Zhao\",\n      \"age\": 23,\n      \"employmentStatus\": \"Unemployed\",\n      \"annualIncome\": 0,\n      \"creditScore\": 590,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Ineligible for Silver due to no income.\"\n    },\n    {\n      \"testCaseId\": \"TC-010\",\n      \"applicantId\": \"APP-1010\",\n      \"name\": \"Jackie Chen\",\n      \"age\": 16,\n      \"employmentStatus\": \"Student\",\n      \"annualIncome\": 5000,\n      \"creditScore\": 610,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Student\",\n      \"description\": \"Eligible for Student card: age 16-25, student status, low income.\"\n    },\n    {\n      \"testCaseId\": \"TC-011\",\n      \"applicantId\": \"APP-1011\",\n      \"name\": \"Kevin Brown\",\n      \"age\": 24,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 40000,\n      \"creditScore\": 650,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Student\",\n      \"description\": \"Ineligible for Student due to employment status.\"\n    },\n    {\n      \"testCaseId\": \"TC-012\",\n      \"applicantId\": \"APP-1012\",\n      \"name\": \"Laura Green\",\n      \"age\": 22,\n      \"employmentStatus\": \"Student\",\n      \"annualIncome\": 3000,\n      \"creditScore\": 600,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Student\",\n      \"description\": \"Existing student customer with moderate credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-013\",\n      \"applicantId\": \"APP-1013\",\n      \"name\": \"Michael O'Neil\",\n      \"age\": 28,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 70000,\n      \"creditScore\": 720,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Business\",\n      \"description\": \"New business applicant with high income and good credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-014\",\n      \"applicantId\": \"APP-1014\",\n      \"name\": \"Nina Patel\",\n      \"age\": 35,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 50000,\n      \"creditScore\": 680,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Business\",\n      \"description\": \"Existing customer applying for business card, moderate income.\"\n    },\n    {\n      \"testCaseId\": \"TC-015\",\n      \"applicantId\": \"APP-1015\",\n      \"name\": \"Oliver Stone\",\n      \"age\": 41,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 25000,\n      \"creditScore\": 750,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Business\",\n      \"description\": \"Ineligible for Business due to low income.\"\n    },\n    {\n      \"testCaseId\": \"TC-016\",\n      \"applicantId\": \"APP-1016\",\n      \"name\": \"Pamela Reyes\",\n      \"age\": 30,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 48000,\n      \"creditScore\": 620,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Eligible for Silver with fair credit and moderate income.\"\n    },\n    {\n      \"testCaseId\": \"TC-017\",\n      \"applicantId\": \"APP-1017\",\n      \"name\": \"Quentin Dupont\",\n      \"age\": 29,\n      \"employmentStatus\": \"Student\",\n      \"annualIncome\": 15000,\n      \"creditScore\": 590,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Gold\",\n      \"description\": \"Ineligible for Gold: student status and low income.\"\n    },\n    {\n      \"testCaseId\": \"TC-018\",\n      \"applicantId\": \"APP-1018\",\n      \"name\": \"Rachel Kim\",\n      \"age\": 21,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 32000,\n      \"creditScore\": 705,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Gold\",\n      \"description\": \"Eligible for Gold with good credit and sufficient income.\"\n    },\n    {\n      \"testCaseId\": \"TC-019\",\n      \"applicantId\": \"APP-1019\",\n      \"name\": \"Steven Yang\",\n      \"age\": 50,\n      \"employmentStatus\": \"Retired\",\n      \"annualIncome\": 30000,\n      \"creditScore\": 720,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Existing retired customer with good credit score.\"\n    },\n    {\n      \"testCaseId\": \"TC-020\",\n      \"applicantId\": \"APP-1020\",\n      \"name\": \"Tina Alvarez\",\n      \"age\": 24,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 110000,\n      \"creditScore\": 830,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Platinum\",\n      \"description\": \"High income, excellent credit, eligible for Platinum.\"\n    },\n    {\n      \"testCaseId\": \"TC-021\",\n      \"applicantId\": \"APP-1021\",\n      \"name\": \"Uma Patel\",\n      \"age\": 17,\n      \"employmentStatus\": \"Student\",\n      \"annualIncome\": 4000,\n      \"creditScore\": 630,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Student\",\n      \"description\": \"Eligible for Student card: age 17-25, student status.\"\n    },\n    {\n      \"testCaseId\": \"TC-022\",\n      \"applicantId\": \"APP-1022\",\n      \"name\": \"Victor Hernandez\",\n      \"age\": 42,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 65000,\n      \"creditScore\": 590,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Existing customer with fair credit, eligible for Silver.\"\n    },\n    {\n      \"testCaseId\": \"TC-023\",\n      \"applicantId\": \"APP-1023\",\n      \"name\": \"Wendy Li\",\n      \"age\": 33,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 52000,\n      \"creditScore\": 660,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Gold\",\n      \"description\": \"Moderate income, good credit, eligible for Gold.\"\n    },\n    {\n      \"testCaseId\": \"TC-024\",\n      \"applicantId\": \"APP-1024\",\n      \"name\": \"Xavier Lopez\",\n      \"age\": 29,\n      \"employmentStatus\": \"Unemployed\",\n      \"annualIncome\": 0,\n      \"creditScore\": 740,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Silver\",\n      \"description\": \"Ineligible for Silver due to no income.\"\n    },\n    {\n      \"testCaseId\": \"TC-025\",\n      \"applicantId\": \"APP-1025\",\n      \"name\": \"Yara Singh\",\n      \"age\": 38,\n      \"employmentStatus\": \"Self-employed\",\n      \"annualIncome\": 80000,\n      \"creditScore\": 790,\n      \"existingCustomer\": true,\n      \"desiredCardType\": \"Business\",\n      \"description\": \"Existing business owner with high income and very good credit.\"\n    }\n  ]\n}\n```",
+                "reasoning": "We need to produce test data for credit card applications for IDSC First Bank. Provide different card types: Platinum, Gold, Silver, Student, Business. Include various conditions: age eligibility, employment status, income brackets, credit score ranges, existing customer flag. Output in JSON format for raw test data. Must be polite tone, ensuring clarity and readability for cross-functional teams. So produce JSON array of test cases. Each test case should include fields: applicantId, name, age, employmentStatus, annualIncome, creditScore, existingCustomer, desiredCardType, and maybe a description or testCaseId. Should cover conditions: age eligibility (maybe certain cards require age >= 21 for Platinum, etc.), employment status: Employed, Self-employed, Unemployed, Student. Income brackets: low, medium, high. Credit score ranges: e.g., 300-579 (Poor), 580-669 (Fair), 670-739 (Good), 740-799 (Very Good), 800+ (Excellent). Existing customer flag: true/false.\n\nWe can produce 15-20 test cases. Provide a JSON array. Each element an object. Provide unique IDs.\n\nAlso maybe include a description field for context.\n\nMake sure output is JSON only. Provide a polite note: \"Below is the test data...\" But the instruction says output in JSON format for raw test data. So we must output just JSON, no extra text. But we can wrap in a JSON object maybe with a key \"testData\": [ ... ]. That is still JSON.\n\nBut the instruction: \"Act as a Senior Test Case Developer, providing the output in JSON format for raw test data with a polite tone, ensuring clarity and readability for cross-functional teams.\" So the response must be JSON format but may include a polite introduction? \"Sure, here's the data:\" but that would add non-JSON. They want raw JSON. So likely just JSON.\n\nLet's create structure:\n\n{\n  \"testCases\": [\n    {\n      \"testCaseId\": \"TC-001\",\n      \"applicantId\": \"APP-1001\",\n      \"name\": \"Alice Johnson\",\n      \"age\": 28,\n      \"employmentStatus\": \"Employed\",\n      \"annualIncome\": 95000,\n      \"creditScore\": 815,\n      \"existingCustomer\": false,\n      \"desiredCardType\": \"Platinum\",\n      \"description\": \"Eligible for Platinum: age >= 21, employed, high income, excellent credit score.\"\n    },\n    ...\n  ]\n}\n\nWe need to cover each card type. For Student, age maybe < 30 but maybe 18-25. Employment status: Student, part-time. Income low. Credit score maybe low. ExistingCustomer maybe false.\n\nBusiness: applicant maybe company, but we can treat as \"Business Owner\". Age maybe > 25. Employment status: Self-employed. Income high. Credit Score high.\n\nAlso test cases for edge conditions: age exactly threshold, credit score borderline, etc.\n\nAlso test cases for negative: ineligible for Platinum due to age < 21 or income too low, credit score too low.\n\nAlso test for existing customer flagged.\n\nAlso for each card type: we can have 4-5 test cases each.\n\nLet's produce about 25 test cases.\n\nWe need to include \"employmentStatus\": \"Employed\", \"Self-employed\", \"Unemployed\", \"Student\", maybe \"Retired\".\n\nIncome: numeric.\n\nCredit score: numeric.\n\nExistingCustomer: boolean.\n\nDesiredCardType: string.\n\nTestCaseId: string.\n\nApplicantId: string.\n\nName: string.\n\nAlso include maybe \"ageEligibility\" as boolean? Not necessary.\n\nFocus on raw data.\n\nLet's produce JSON:\n\n{\n  \"testCases\": [\n    {...}, {...}\n  ]\n}\n\nOk.\n\nLet's generate 25 test cases. Provide variety.\n\nEnsure readability: indent.\n\nLet's go."
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.051293802,
+        "prompt_tokens": 183,
+        "prompt_time": 0.008914828,
+        "completion_tokens": 3330,
+        "completion_time": 3.306167955,
+        "total_tokens": 3513,
+        "total_time": 3.315082783
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3d587a02fb",
+    "x_groq": {
+        "id": "req_01k896ztx5eara6f1akq6618q2"
+    },
+    "service_tier": "on_demand"
+}

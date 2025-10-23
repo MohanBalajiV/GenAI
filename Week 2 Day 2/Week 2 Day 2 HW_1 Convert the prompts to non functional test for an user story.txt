@@ -1,0 +1,167 @@
+Instruction 
+A) create only non functional testcases for the below user story
+Use meaningful testcases
+
+Context: 
+You are AI assitant to convert the userstory into non functoinal testcases
+You are expert in transaction
+This project is banking transaction application
+
+Examples:
+User story
+User Story: As a banking customer, I want to easily transfer funds between my accounts so I can manage my money efficiently.
+Acceptance Criteria:
+Given I am a logged-in user with multiple accounts.
+When I initiate a transfer between my checking and savings accounts.
+Then the selected amount is immediately deducted from my checking and credited to my savings.
+Then I receive a confirmation message and a new account balance is displayed.
+Then the transaction is recorded in my transaction history.
+
+
+AI Response:
+Non-Functional Test Cases
+
+Test Case: Login Page Load Time
+
+Description: Verify that the login page loads within an acceptable time frame.
+Preconditions: User navigates to the ticket booking application's login page.
+Test Steps:
+
+Measure the time taken for the login page to fully load (including all elements like user ID field, password field, and login button).
+
+
+Expected Result: The login page should load within 3 seconds under normal network conditions.
+Non-Functional Aspect: Performance (Page Load Time)
+
+
+Test Case: Login Response Time
+
+Description: Verify that the login process completes within an acceptable time frame after submitting valid credentials.
+Preconditions: User is on the login page with valid credentials entered.
+Test Steps:
+
+Enter valid user ID and password.
+Click the "Login" button.
+Measure the time taken from clicking the login button to receiving the login confirmation or dashboard page load.
+
+
+Expected Result: The login process should complete within 5 seconds under normal network conditions.
+Non-Functional Aspect: Performance (Response Time)
+
+
+Test Case: Concurrent User Login
+
+Description: Verify that the application supports multiple users logging in simultaneously without performance degradation.
+Preconditions: Multiple user accounts with valid credentials are available.
+Test Steps:
+
+Simulate 100 users logging in simultaneously using valid credentials.
+Monitor system performance metrics (e.g., response time, CPU/memory usage).
+
+
+Expected Result: All users should log in successfully within 5 seconds, with no server errors or significant performance degradation.
+Non-Functional Aspect: Scalability (Load Testing)
+
+
+Test Case: Login Security with Invalid Credentials
+
+Description: Verify that the application prevents unauthorized access when invalid credentials are provided.
+Preconditions: User is on the login page.
+Test Steps:
+
+Enter an incorrect user ID or password.
+Click the "Login" button.
+Verify the system response and error message.
+
+
+Expected Result: The system displays an error message ("Incorrect login. Please try again.") within 2 seconds and prevents access to the application.
+Non-Functional Aspect: Security (Authentication)
+
+
+Test Case: Password Field Encryption
+
+Description: Verify that the password entered in the login form is encrypted during transmission.
+Preconditions: User is on the login page with valid credentials.
+Test Steps:
+
+Enter valid user ID and password.
+Use network monitoring tools to inspect the data transmitted when clicking the "Login" button.
+
+
+Expected Result: The password field data should be encrypted (e.g., using HTTPS and SSL/TLS) and not visible in plain text.
+Non-Functional Aspect: Security (Data Encryption)
+
+
+Test Case: Forgot Password Link Accessibility
+
+Description: Verify that the "Forget/Change Password" link is accessible to users with disabilities.
+Preconditions: User is on the login page.
+Test Steps:
+
+Use accessibility testing tools (e.g., WAVE, Axe) to evaluate the "Forget/Change Password" link.
+Verify that the link is navigable using keyboard controls and screen readers.
+
+
+Expected Result: The link should have appropriate ARIA labels, be keyboard-navigable, and be compatible with screen readers.
+Non-Functional Aspect: Accessibility (WCAG Compliance)
+
+
+Test Case: Login Page Cross-Browser Compatibility
+
+Description: Verify that the login page functions consistently across different browsers.
+Preconditions: User is on the login page.
+Test Steps:
+
+Access the login page on multiple browsers (e.g., Chrome, Firefox, Safari, Edge).
+Enter valid credentials and click the "Login" button.
+Verify the login functionality and page rendering.
+
+
+Expected Result: The login page should render correctly and function consistently across all supported browsers.
+Non-Functional Aspect: Compatibility (Cross-Browser)
+
+
+Test Case: Login Page Responsiveness
+
+Description: Verify that the login page is responsive across different devices and screen sizes.
+Preconditions: User accesses the login page on various devices.
+Test Steps:
+
+Access the login page on desktop, tablet, and mobile devices with different screen resolutions.
+Verify the layout, visibility, and functionality of the user ID field, password field, login button, and "Forget/Change Password" link.
+
+
+Expected Result: The login page should adapt to different screen sizes, with all elements remaining accessible and functional.
+Non-Functional Aspect: Usability (Responsiveness)
+
+
+Test Case: Error Message Display Time
+
+Description: Verify that the login error message is displayed promptly when invalid credentials are entered.
+Preconditions: User is on the login page.
+Test Steps:
+
+Enter invalid user ID or password.
+Click the "Login" button.
+Measure the time taken for the error message to appear.
+
+
+Expected Result: The error message ("Incorrect login. Please try again.") should appear within 2 seconds.
+Non-Functional Aspect: Performance (Response Time)
+
+
+Test Case: Session Timeout Handling
+
+Description: Verify that the application handles session timeouts securely during login attempts.
+Preconditions: User is on the login page and attempts to log in.
+Test Steps:
+
+Enter valid credentials but delay form submission beyond the session timeout period.
+Click the "Login" button.
+Verify the system response.
+
+
+Expected Result: The system should display a session timeout message and prompt the user to retry, without exposing sensitive information.
+Non-Functional Aspect: Security (Session Management)
+
+

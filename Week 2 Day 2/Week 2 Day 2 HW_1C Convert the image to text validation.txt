@@ -1,0 +1,63 @@
+b) Confirmation of the audio (recorded content of your voice) converted into correct text
+
+( sample audio available in https://getsamplefiles.com/sample-audio-files/opus#google_vignette)
+
+API Body Request:
+{
+  "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Extract the text from this image and let the upper or lower cases stay as it is. Return only those characters"
+        },
+        {
+          "type": "image_url",
+          "image_url": { 
+            "url": "https://shifu.hotstarext.com/SOURCE/VOD/cd-2025-08-29/PKLEveryday_Web-025dd6fe-6750-407c-a170-826fd089bed0.jpg"
+          },
+         "temperature": 0.1
+        }
+      ]
+    }
+   
+  ],
+  "max_tokens": 500
+}
+
+
+PostMan Response:
+{
+    "id": "chatcmpl-46647289-26d6-453d-b9e5-9bbaaa259191",
+    "object": "chat.completion",
+    "created": 1761223358,
+    "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "The text in the image is:\n\nPRO KABADDI LEAGUE \nEVERY DAY \n7:30PM ONWARDS"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.131787633,
+        "prompt_tokens": 2356,
+        "prompt_time": 0.072743636,
+        "completion_tokens": 28,
+        "completion_time": 0.072244137,
+        "total_tokens": 2384,
+        "total_time": 0.144987773
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_5d3e4e58e1",
+    "x_groq": {
+        "id": "req_01k88hfdy1fns95kqbg4vagabd"
+    },
+    "service_tier": "on_demand"
+}
